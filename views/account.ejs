@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="Description" content="Enter your description here"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<title>Title</title>
+</head>
+<body>
+    <div class="container">
+        <table class="table">
+            <a href="/accounts/add" class="btn btn-success"> <i class="fa fa-plus" aria-hidden="true">Thêm</i> </a>
+            <thead>
+                <tr>
+                    <th>Avatar</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Email</th>
+                    <th>FullName</th>
+                    <th>Chức năng</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% accounts.forEach(item => { %>
+                 <tr>
+                    <td> <img src="/images/<%= item.Avatar %>" alt="" style="width: 100px;"> </td>
+                    <td> <%= item.Username %> </td>
+                    <td> <%= item.Password %> </td>
+                    <td> <%= item.Email %> </td>
+                    <td> <%= item.FullName %> </td>
+                    <td> 
+                        <a href="/accounts/detail/<%= item.Id %>"> <i class="fa fa-user" aria-hidden="true"></i> </a> 
+                        <a href="/accounts/delete/<%= item.Id %>"> <i class="fa fa-minus" aria-hidden="true"></i> </a>
+                        <a href="/accounts/update/<%= item.Id %>"> <i class="fa fa-pen" aria-hidden="true"></i> </a>
+                    </td>
+                 </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</body>
+</html>
